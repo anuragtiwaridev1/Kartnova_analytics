@@ -1,0 +1,5 @@
+discount_band,lines,avg_units_per_line,return_rate_pct,gross_margin_pct
+0%,16398,1.43,8.26,38.5
+1-10%,20152,1.43,8.78,33.76
+11-20%,15370,1.47,8.61,24.39
+>20%,8199,1.39,12.88,32.11

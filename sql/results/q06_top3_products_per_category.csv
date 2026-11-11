@@ -1,0 +1,22 @@
+category,rank_in_category,product_name,revenue,units
+Beauty & Personal Care,1,Orbit Haircare Model 2,2617204.0,762
+Beauty & Personal Care,2,Vertex Haircare Model 3,1760571.0,715
+Beauty & Personal Care,3,Kiara Haircare Model 5,1708820.0,702
+Books & Stationery,1,Meridian Fiction Model 2,1531948.0,1004
+Books & Stationery,2,Pinnacle Fiction Model 3,1112802.0,797
+Books & Stationery,3,Zenith Academic Model 3,448658.0,379
+Electronics,1,Sahara Smartphones Model 1,37235325.0,911
+Electronics,2,Pinnacle Smartphones Model 3,18439649.0,379
+Electronics,3,Tarang Smartphones Model 6,12007523.0,194
+Fashion,1,Aurora Men's Wear Model 2,5763302.0,2069
+Fashion,2,Lumen Men's Wear Model 1,5641022.0,3494
+Fashion,3,Vertex Men's Wear Model 3,2864376.0,1463
+Grocery & Gourmet,1,Aurora Snacks Model 1,2433687.0,3024
+Grocery & Gourmet,2,Kiara Snacks Model 2,1080662.0,1720
+Grocery & Gourmet,3,Pinnacle Snacks Model 3,810498.0,1199
+Home & Kitchen,1,Lumen Cookware Model 4,4490479.0,601
+Home & Kitchen,2,Orbit Cookware Model 2,3572537.0,1409
+Home & Kitchen,3,Tarang Cookware Model 5,3473210.0,677
+Sports & Fitness,1,Meridian Sportswear Model 1,4464158.0,477
+Sports & Fitness,2,Pinnacle Outdoor Gear Model 4,2385370.0,149
+Sports & Fitness,3,Tarang Outdoor Gear Model 3,1941390.0,167

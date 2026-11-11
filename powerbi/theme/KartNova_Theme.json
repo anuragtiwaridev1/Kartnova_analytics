@@ -1,0 +1,30 @@
+{
+  "name": "KartNova Analytics",
+  "dataColors": ["#1F4E79", "#2E86AB", "#F18F01", "#C73E1D", "#3B8EA5", "#6C757D", "#8FB339", "#7B2D8E"],
+  "background": "#FFFFFF",
+  "foreground": "#1B2A3A",
+  "tableAccent": "#1F4E79",
+  "good": "#2E7D32",
+  "neutral": "#F18F01",
+  "bad": "#C62828",
+  "maximum": "#1F4E79",
+  "center": "#F1F5F9",
+  "minimum": "#DCE8F2",
+  "null": "#C9CED6",
+  "textClasses": {
+    "label":   { "fontFace": "Segoe UI", "fontSize": 10, "color": "#1B2A3A" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#1F4E79" },
+    "title":   { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1B2A3A" },
+    "header":  { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#1F4E79" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title":      [{ "show": true, "fontSize": 12, "fontColor": { "solid": { "color": "#1B2A3A" } } }],
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border":     [{ "show": true, "color": { "solid": { "color": "#E3E8EF" } }, "radius": 6 }]
+      }
+    },
+    "page": { "*": { "background": [{ "color": { "solid": { "color": "#F4F6F9" } }, "transparency": 0 }] } }
+  }
+}

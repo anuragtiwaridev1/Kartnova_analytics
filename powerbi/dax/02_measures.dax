@@ -1,0 +1,185 @@
+// =====================================================================================================
+//  02_measures.dax  |  KartNova measure library  |  Home table: _Measures
+//  Convention: base measures -> derived measures -> time intelligence -> advanced patterns.
+//  All ratios use DIVIDE() (safe divide-by-zero).  Display folder noted in the section header.
+//  Business rules identical to SQL view vw_order_lines and Python build_fact().
+// =====================================================================================================
+
+
+// ##################################################################  1. SALES & PROFIT   [Display folder: 1 Sales]
+Net Revenue      = SUM ( Fact_Sales[net_revenue] )                       // invoiced value after discount, delivered orders only
+Gross Sales      = SUM ( Fact_Sales[gross_sales] )                       // at list price, before discount
+Discount Amount  = [Gross Sales] - [Net Revenue]
+Discount %       = DIVIDE ( [Discount Amount], [Gross Sales] )
+Refunds          = SUM ( Fact_Sales[refund_amt] )
+Kept Revenue     = [Net Revenue] - [Refunds]                             // revenue after returns = "true" revenue
+Gross Profit     = SUM ( Fact_Sales[gross_profit] )
+Gross Margin %   = DIVIDE ( [Gross Profit], [Kept Revenue] )
+Units Sold       = SUM ( Fact_Sales[quantity] )
+Orders           = DISTINCTCOUNT ( Fact_Sales[order_id] )                // delivered orders
+Active Customers = DISTINCTCOUNT ( Fact_Sales[customer_id] )
+AOV              = DIVIDE ( [Net Revenue], [Orders] )                    // average order value
+Units per Order  = DIVIDE ( [Units Sold], [Orders] )
+Revenue per Customer = DIVIDE ( [Kept Revenue], [Active Customers] )
+Avg Selling Price = DIVIDE ( [Net Revenue], [Units Sold] )
+
+
+// ##################################################################  2. RETURNS & OPERATIONS   [Display folder: 2 Ops]
+Returned Lines   = CALCULATE ( COUNTROWS ( Fact_Sales ), Fact_Sales[is_returned] = 1 )
+Return Rate %    = DIVIDE ( [Returned Lines], COUNTROWS ( Fact_Sales ) )            // share of delivered lines returned
+Refund % of Revenue = DIVIDE ( [Refunds], [Net Revenue] )
+All Orders Placed = COUNTROWS ( Fact_Orders )                                       // incl. cancelled
+Cancelled Orders  = CALCULATE ( COUNTROWS ( Fact_Orders ), Fact_Orders[order_status] = "Cancelled" )
+Cancellation Rate % = DIVIDE ( [Cancelled Orders], [All Orders Placed] )
+Avg Delivery Days = AVERAGE ( Fact_Orders[delivery_days] )                           // cancelled = blank -> ignored by AVERAGE
+Late Delivery %   =                                                                  // delivered orders taking > 7 days
+    DIVIDE (
+        CALCULATE ( COUNTROWS ( Fact_Orders ), Fact_Orders[is_late_delivery] = 1 ),
+        CALCULATE ( COUNTROWS ( Fact_Orders ), Fact_Orders[order_status] = "Delivered" ) )
+COD Share of Orders % =
+    DIVIDE ( CALCULATE ( COUNTROWS ( Fact_Orders ), Fact_Orders[payment_method] = "Cash on Delivery" ), [All Orders Placed] )
+Top Return Reason =                                                                  // most frequent return reason in current filter
+    VAR T = FILTER ( ADDCOLUMNS ( VALUES ( Fact_Sales[return_reason] ), "@n", CALCULATE ( COUNTROWS ( Fact_Sales ) ) ), NOT ISBLANK ( Fact_Sales[return_reason] ) )
+    RETURN MAXX ( TOPN ( 1, T, [@n], DESC ), Fact_Sales[return_reason] )
+
+
+// ##################################################################  3. TIME INTELLIGENCE   [Display folder: 3 Time]
+Last Data Date   = CALCULATE ( MAX ( Fact_Sales[order_date] ), ALL ( Fact_Sales ) )  // stops the calendar's empty future from showing fake growth
+Is Period In Data = IF ( MIN ( Dim_Date[Date] ) <= [Last Data Date], 1, 0 )
+
+Revenue PY       = CALCULATE ( [Net Revenue], SAMEPERIODLASTYEAR ( Dim_Date[Date] ) )
+Revenue YoY %    = VAR PY = [Revenue PY] RETURN IF ( [Is Period In Data] = 1 && NOT ISBLANK ( PY ), DIVIDE ( [Net Revenue] - PY, PY ) )
+Revenue PM       = CALCULATE ( [Net Revenue], DATEADD ( Dim_Date[Date], -1, MONTH ) )
+Revenue MoM %    = VAR PM = [Revenue PM] RETURN IF ( [Is Period In Data] = 1 && NOT ISBLANK ( PM ), DIVIDE ( [Net Revenue] - PM, PM ) )
+Revenue MTD      = TOTALMTD ( [Net Revenue], Dim_Date[Date] )
+Revenue QTD      = TOTALQTD ( [Net Revenue], Dim_Date[Date] )
+Revenue YTD      = TOTALYTD ( [Net Revenue], Dim_Date[Date] )
+Revenue YTD PY   = CALCULATE ( [Revenue YTD], SAMEPERIODLASTYEAR ( Dim_Date[Date] ) )
+Revenue YTD YoY % = VAR PY = [Revenue YTD PY] RETURN IF ( [Is Period In Data] = 1 && NOT ISBLANK ( PY ), DIVIDE ( [Revenue YTD] - PY, PY ) )
+Revenue FYTD     = TOTALYTD ( [Net Revenue], Dim_Date[Date], "3/31" )                // India fiscal year ends 31-Mar
+Revenue Rolling 3M = CALCULATE ( [Net Revenue], DATESINPERIOD ( Dim_Date[Date], MAX ( Dim_Date[Date] ), -3, MONTH ) )
+Revenue Rolling 3M Avg = DIVIDE ( [Revenue Rolling 3M], 3 )
+Revenue L12M     = CALCULATE ( [Net Revenue], DATESINPERIOD ( Dim_Date[Date], MAX ( Dim_Date[Date] ), -12, MONTH ) )
+Gross Profit YoY % =
+    VAR PY = CALCULATE ( [Gross Profit], SAMEPERIODLASTYEAR ( Dim_Date[Date] ) )
+    RETURN IF ( [Is Period In Data] = 1 && NOT ISBLANK ( PY ), DIVIDE ( [Gross Profit] - PY, PY ) )
+
+Seasonality Index =                                                                  // 1.0 = an average month of that year
+    VAR Yr    = MAX ( Dim_Date[Year] )
+    VAR LastD = [Last Data Date]                                                     // VAR, because measures are not allowed inside boolean filter shortcuts
+    VAR MonthsWithData =
+        CALCULATETABLE ( VALUES ( Dim_Date[Month Start] ), REMOVEFILTERS ( Dim_Date ), Dim_Date[Year] = Yr, Dim_Date[Date] <= LastD )
+    VAR YearAvg =
+        AVERAGEX ( MonthsWithData, VAR m = Dim_Date[Month Start] RETURN CALCULATE ( [Net Revenue], REMOVEFILTERS ( Dim_Date ), Dim_Date[Month Start] = m ) )
+    RETURN IF ( [Is Period In Data] = 1, DIVIDE ( [Net Revenue], YearAvg ) )
+
+
+// ##################################################################  4. SHARE / RANKING / PARETO   [Display folder: 4 Ranking]
+Revenue % of Total = DIVIDE ( [Net Revenue], CALCULATE ( [Net Revenue], ALLSELECTED () ) )     // respects slicers, ignores visual rows
+Revenue % of Category =
+    DIVIDE ( [Net Revenue], CALCULATE ( [Net Revenue], REMOVEFILTERS ( Dim_Product[sub_category], Dim_Product[product_name], Dim_Product[brand] ) ) )
+
+Product Rank = RANKX ( ALLSELECTED ( Dim_Product[product_name] ), [Net Revenue], , DESC, SKIP )
+Top N Value  = SELECTEDVALUE ( 'Top N'[Top N], 10 )
+Top N Product Revenue = IF ( [Product Rank] <= [Top N Value], [Net Revenue] )                  // visual shows only Top-N rows
+
+Cumulative Revenue % =                                                                          // Pareto line
+    VAR Cur = [Net Revenue]
+    VAR Tbl = ALLSELECTED ( Dim_Product[product_name] )
+    VAR Cum = SUMX ( FILTER ( Tbl, [Net Revenue] >= Cur ), [Net Revenue] )
+    VAR Tot = SUMX ( Tbl, [Net Revenue] )
+    RETURN IF ( ISBLANK ( Cur ), BLANK (), DIVIDE ( Cum, Tot ) )
+
+ABC Class =                                                                                     // A = top 70% of revenue, B = next 20%, C = tail
+    VAR p = [Cumulative Revenue %]
+    RETURN IF ( ISBLANK ( p ), BLANK (), SWITCH ( TRUE (), p <= 0.70, "A", p <= 0.90, "B", "C" ) )
+
+Category Margin Rank = RANKX ( ALLSELECTED ( Dim_Product[category] ), [Gross Margin %], , DESC, DENSE )
+Share of Profit % = DIVIDE ( [Gross Profit], CALCULATE ( [Gross Profit], ALLSELECTED () ) )
+
+
+// ##################################################################  5. CUSTOMER ANALYTICS   [Display folder: 5 Customers]
+Total Customers Registered = COUNTROWS ( Dim_Customer )
+New Customers =                                                                                 // sign-ups inside the selected date range
+    VAR d1 = MIN ( Dim_Date[Date] )  VAR d2 = MAX ( Dim_Date[Date] )
+    RETURN CALCULATE ( COUNTROWS ( Dim_Customer ), FILTER ( Dim_Customer, Dim_Customer[signup_date] >= d1 && Dim_Customer[signup_date] <= d2 ) )
+Returning Customers =                                                                           // bought in period but first purchase was earlier
+    VAR d1 = MIN ( Dim_Date[Date] )
+    RETURN CALCULATE ( DISTINCTCOUNT ( Fact_Sales[customer_id] ), FILTER ( Dim_Customer, Dim_Customer[First Order Date] < d1 ) )
+Returning Customer % = DIVIDE ( [Returning Customers], [Active Customers] )
+Repeat Customer Rate % =                                                                        // customers with 2+ orders (within current filters)
+    VAR Buyers = FILTER ( VALUES ( Dim_Customer[customer_id] ), [Orders] >= 1 )
+    VAR Repeat = FILTER ( Buyers, [Orders] >= 2 )
+    RETURN DIVIDE ( COUNTROWS ( Repeat ), COUNTROWS ( Buyers ) )
+Orders per Customer = DIVIDE ( [Orders], [Active Customers] )
+Customers in Segment = CALCULATE ( COUNTROWS ( Dim_Customer ), NOT ISBLANK ( Dim_Customer[RFM Segment] ) )
+Segment Revenue Share % = DIVIDE ( [Kept Revenue], CALCULATE ( [Kept Revenue], ALLSELECTED ( Dim_Customer[RFM Segment] ) ) )
+Avg Recency Days = AVERAGE ( Dim_Customer[Recency Days] )
+Lapsed Customers 180d =                                                                         // no order in the last 180 days of data
+    VAR Cutoff = [Last Data Date] - 180
+    RETURN COUNTROWS ( FILTER ( Dim_Customer, NOT ISBLANK ( Dim_Customer[Last Order Date] ) && Dim_Customer[Last Order Date] < Cutoff ) )
+Lapsed Customer Value =                                                                         // lifetime revenue sitting in lapsed customers
+    VAR Cutoff = [Last Data Date] - 180
+    RETURN SUMX ( FILTER ( Dim_Customer, NOT ISBLANK ( Dim_Customer[Last Order Date] ) && Dim_Customer[Last Order Date] < Cutoff ), Dim_Customer[Lifetime Revenue] )
+Top 10% Customer Revenue Share % =                                                              // concentration risk
+    VAR Cust = ADDCOLUMNS ( FILTER ( ALLSELECTED ( Dim_Customer ), NOT ISBLANK ( Dim_Customer[Lifetime Revenue] ) ), "@rev", Dim_Customer[Lifetime Revenue] )
+    VAR n    = COUNTROWS ( Cust )
+    VAR Top10 = TOPN ( ROUNDUP ( n * 0.10, 0 ), Cust, [@rev], DESC )
+    RETURN DIVIDE ( SUMX ( Top10, [@rev] ), SUMX ( Cust, [@rev] ) )
+
+
+// ##################################################################  6. COHORT RETENTION   [Display folder: 6 Cohort]
+// Matrix:  rows = Dim_Customer[Cohort Month],  columns = Offsets[Offset],  values = [Cohort Retention %]
+Last Data Month = DATE ( YEAR ( [Last Data Date] ), MONTH ( [Last Data Date] ), 1 )
+Cohort Size =
+    VAR C = MAX ( Dim_Customer[Cohort Month] )
+    RETURN CALCULATE ( DISTINCTCOUNT ( Fact_Sales[customer_id] ), REMOVEFILTERS ( Dim_Date ), Fact_Sales[order_month] = C )
+Cohort Active Customers =
+    VAR C   = MAX ( Dim_Customer[Cohort Month] )
+    VAR Off = SELECTEDVALUE ( Offsets[Offset] )
+    RETURN CALCULATE ( DISTINCTCOUNT ( Fact_Sales[customer_id] ), REMOVEFILTERS ( Dim_Date ), Fact_Sales[order_month] = EDATE ( C, Off ) )
+Cohort Retention % =
+    VAR C   = MAX ( Dim_Customer[Cohort Month] )
+    VAR Off = SELECTEDVALUE ( Offsets[Offset] )
+    RETURN IF ( EDATE ( C, Off ) > [Last Data Month], BLANK (), DIVIDE ( [Cohort Active Customers], [Cohort Size] ) )   // right-censoring: no fake zeros
+Avg Retention M3 % =                                                                            // size-weighted month-3 retention across visible cohorts
+    VAR T = FILTER ( ADDCOLUMNS ( VALUES ( Dim_Customer[Cohort Month] ), "@a", CALCULATE ( [Cohort Active Customers], Offsets[Offset] = 3 ), "@s", [Cohort Size] ),
+                     EDATE ( Dim_Customer[Cohort Month], 3 ) <= [Last Data Month] )
+    RETURN DIVIDE ( SUMX ( T, [@a] ), SUMX ( T, [@s] ) )
+
+
+// ##################################################################  7. MARKETING EFFICIENCY   [Display folder: 7 Marketing]
+Marketing Spend = SUM ( Fact_Marketing[marketing_spend] )
+CAC = DIVIDE ( [Marketing Spend], [New Customers] )                                             // customer acquisition cost
+Revenue per Rupee Spent = DIVIDE ( [Kept Revenue], [Marketing Spend] )                          // ROAS-style efficiency
+Marketing % of Revenue = DIVIDE ( [Marketing Spend], [Kept Revenue] )
+LTV 12M Gross Profit = CALCULATE ( AVERAGE ( Dim_Customer[GP 12M] ), Dim_Customer[Is Mature 12M] = TRUE () )   // avg profit per mature customer in first 12 months
+LTV to CAC = DIVIDE ( [LTV 12M Gross Profit], [CAC] )                                           // >= 3x is the common health benchmark
+CAC Payback Months = DIVIDE ( [CAC], DIVIDE ( [LTV 12M Gross Profit], 12 ) )
+Channel Health =
+    SWITCH ( TRUE (), [LTV to CAC] >= 5, "Scale up", [LTV to CAC] >= 3, "Maintain", ISBLANK ( [LTV to CAC] ), BLANK (), "Optimise / cut" )
+
+
+// ##################################################################  8. DYNAMIC & UX MEASURES   [Display folder: 8 UX]
+Selected Metric =                                                                               // driven by the 'Metric Selector' slicer
+    SWITCH ( SELECTEDVALUE ( 'Metric Selector'[Metric], "Net Revenue" ),
+        "Net Revenue", [Net Revenue], "Gross Profit", [Gross Profit], "Orders", [Orders],
+        "Active Customers", [Active Customers], "AOV", [AOV] )
+Selected Metric Title = "Trend of " & SELECTEDVALUE ( 'Metric Selector'[Metric], "Net Revenue" ) & " by month"
+YoY Arrow  = VAR g = [Revenue YoY %] RETURN IF ( ISBLANK ( g ), "", IF ( g >= 0, "▲ ", "▼ " ) ) & FORMAT ( g, "0.0%;0.0%" )
+YoY Color  = IF ( [Revenue YoY %] >= 0, "#2E7D32", "#C62828" )                                  // use in conditional-formatting "Field value"
+Margin Status Color = SWITCH ( TRUE (), [Gross Margin %] >= 0.35, "#2E7D32", [Gross Margin %] >= 0.25, "#F18F01", "#C62828" )
+Dynamic Page Title =
+    "KartNova - " & IF ( ISFILTERED ( Dim_Date[Year] ), "FY view: " & CONCATENATEX ( VALUES ( Dim_Date[Year] ), Dim_Date[Year], ", " ), "All years" )
+    & " | " & IF ( ISFILTERED ( Dim_Customer[region] ), CONCATENATEX ( VALUES ( Dim_Customer[region] ), Dim_Customer[region], ", " ), "All regions" )
+Data Refreshed Through = "Data through " & FORMAT ( [Last Data Date], "dd mmm yyyy" )
+
+
+// ##################################################################  9. PRICING WHAT-IF   [Display folder: 9 What-if]
+// Parameter table 'Discount Cap' = GENERATESERIES ( 0, 40, 5 )   (Modeling > New parameter, default 10)
+Discount Cap Value = SELECTEDVALUE ( 'Discount Cap'[Discount Cap], 10 )
+Net Revenue @ Cap =                                                                             // revenue if no line were discounted deeper than the cap
+    VAR Cap = [Discount Cap Value]
+    RETURN SUMX ( Fact_Sales, Fact_Sales[gross_sales] * ( 1 - MIN ( Fact_Sales[discount_pct], Cap ) / 100 ) )
+Profit Uplift @ Cap = [Net Revenue @ Cap] - [Net Revenue]                                       // assumes zero volume loss (supported by the Spearman test: discount vs units rho ~ 0)
+Uplift % of Gross Profit = DIVIDE ( [Profit Uplift @ Cap], [Gross Profit] )

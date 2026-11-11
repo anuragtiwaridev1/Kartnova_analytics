@@ -1,0 +1,9 @@
+segment,customers,revenue,revenue_pct,avg_recency_days,avg_orders
+Champions,1473,102526772.0,42.9,52.0,7.3
+Can't Lose Them,645,37427443.0,15.7,526.0,5.4
+Loyal Customers,1116,33733518.0,14.1,161.0,4.7
+Needs Attention,1347,21270872.0,8.9,437.0,1.1
+Potential Loyalists,1069,18110659.0,7.6,126.0,2.0
+At Risk,1009,14985271.0,6.3,535.0,2.5
+New / Promising,898,8063555.0,3.4,80.0,1.0
+Lost,1297,3011924.0,1.3,655.0,1.1

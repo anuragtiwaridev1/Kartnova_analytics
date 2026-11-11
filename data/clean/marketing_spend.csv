@@ -1,0 +1,217 @@
+month_start,channel,marketing_spend
+2023-01-01,Organic Search,43600.0
+2023-01-01,Paid Search,134800.0
+2023-01-01,Social Media,94800.0
+2023-01-01,Referral,16100.0
+2023-01-01,Email Marketing,25800.0
+2023-01-01,Affiliate,32600.0
+2023-02-01,Organic Search,46700.0
+2023-02-01,Paid Search,133100.0
+2023-02-01,Social Media,106900.0
+2023-02-01,Referral,17600.0
+2023-02-01,Email Marketing,26900.0
+2023-02-01,Affiliate,35000.0
+2023-03-01,Organic Search,45900.0
+2023-03-01,Paid Search,139700.0
+2023-03-01,Social Media,110800.0
+2023-03-01,Referral,20500.0
+2023-03-01,Email Marketing,26200.0
+2023-03-01,Affiliate,39400.0
+2023-04-01,Organic Search,47600.0
+2023-04-01,Paid Search,137700.0
+2023-04-01,Social Media,108200.0
+2023-04-01,Referral,19300.0
+2023-04-01,Email Marketing,26900.0
+2023-04-01,Affiliate,34000.0
+2023-05-01,Organic Search,48300.0
+2023-05-01,Paid Search,143900.0
+2023-05-01,Social Media,112400.0
+2023-05-01,Referral,18900.0
+2023-05-01,Email Marketing,28100.0
+2023-05-01,Affiliate,38100.0
+2023-06-01,Organic Search,50200.0
+2023-06-01,Paid Search,147200.0
+2023-06-01,Social Media,105000.0
+2023-06-01,Referral,19200.0
+2023-06-01,Email Marketing,26700.0
+2023-06-01,Affiliate,34500.0
+2023-07-01,Organic Search,50100.0
+2023-07-01,Paid Search,160700.0
+2023-07-01,Social Media,111000.0
+2023-07-01,Referral,19300.0
+2023-07-01,Email Marketing,28300.0
+2023-07-01,Affiliate,37700.0
+2023-08-01,Organic Search,50100.0
+2023-08-01,Paid Search,160100.0
+2023-08-01,Social Media,108800.0
+2023-08-01,Referral,20800.0
+2023-08-01,Email Marketing,28600.0
+2023-08-01,Affiliate,47300.0
+2023-09-01,Organic Search,46900.0
+2023-09-01,Paid Search,148000.0
+2023-09-01,Social Media,115200.0
+2023-09-01,Referral,21800.0
+2023-09-01,Email Marketing,26800.0
+2023-09-01,Affiliate,40500.0
+2023-10-01,Organic Search,63700.0
+2023-10-01,Paid Search,205400.0
+2023-10-01,Social Media,142900.0
+2023-10-01,Referral,26300.0
+2023-10-01,Email Marketing,35300.0
+2023-10-01,Affiliate,52000.0
+2023-11-01,Organic Search,62700.0
+2023-11-01,Paid Search,194700.0
+2023-11-01,Social Media,148900.0
+2023-11-01,Referral,29900.0
+2023-11-01,Email Marketing,37500.0
+2023-11-01,Affiliate,49600.0
+2023-12-01,Organic Search,51000.0
+2023-12-01,Paid Search,148400.0
+2023-12-01,Social Media,106200.0
+2023-12-01,Referral,22600.0
+2023-12-01,Email Marketing,28100.0
+2023-12-01,Affiliate,40500.0
+2024-01-01,Organic Search,54100.0
+2024-01-01,Paid Search,158300.0
+2024-01-01,Social Media,124100.0
+2024-01-01,Referral,20900.0
+2024-01-01,Email Marketing,28000.0
+2024-01-01,Affiliate,46500.0
+2024-02-01,Organic Search,51100.0
+2024-02-01,Paid Search,155600.0
+2024-02-01,Social Media,120700.0
+2024-02-01,Referral,19800.0
+2024-02-01,Email Marketing,27300.0
+2024-02-01,Affiliate,45600.0
+2024-03-01,Organic Search,53700.0
+2024-03-01,Paid Search,148900.0
+2024-03-01,Social Media,114200.0
+2024-03-01,Referral,25000.0
+2024-03-01,Email Marketing,28800.0
+2024-03-01,Affiliate,43100.0
+2024-04-01,Organic Search,53500.0
+2024-04-01,Paid Search,163500.0
+2024-04-01,Social Media,111500.0
+2024-04-01,Referral,28600.0
+2024-04-01,Email Marketing,27800.0
+2024-04-01,Affiliate,39700.0
+2024-05-01,Organic Search,52100.0
+2024-05-01,Paid Search,156800.0
+2024-05-01,Social Media,123300.0
+2024-05-01,Referral,23900.0
+2024-05-01,Email Marketing,28500.0
+2024-05-01,Affiliate,44800.0
+2024-06-01,Organic Search,51400.0
+2024-06-01,Paid Search,162900.0
+2024-06-01,Social Media,116900.0
+2024-06-01,Referral,24600.0
+2024-06-01,Email Marketing,29300.0
+2024-06-01,Affiliate,45200.0
+2024-07-01,Organic Search,52900.0
+2024-07-01,Paid Search,160600.0
+2024-07-01,Social Media,126600.0
+2024-07-01,Referral,23800.0
+2024-07-01,Email Marketing,28100.0
+2024-07-01,Affiliate,43800.0
+2024-08-01,Organic Search,51600.0
+2024-08-01,Paid Search,155600.0
+2024-08-01,Social Media,117900.0
+2024-08-01,Referral,23300.0
+2024-08-01,Email Marketing,27700.0
+2024-08-01,Affiliate,43700.0
+2024-09-01,Organic Search,55700.0
+2024-09-01,Paid Search,171200.0
+2024-09-01,Social Media,120100.0
+2024-09-01,Referral,27100.0
+2024-09-01,Email Marketing,26700.0
+2024-09-01,Affiliate,52800.0
+2024-10-01,Organic Search,66700.0
+2024-10-01,Paid Search,219900.0
+2024-10-01,Social Media,147600.0
+2024-10-01,Referral,32300.0
+2024-10-01,Email Marketing,39500.0
+2024-10-01,Affiliate,54200.0
+2024-11-01,Organic Search,70700.0
+2024-11-01,Paid Search,203800.0
+2024-11-01,Social Media,152600.0
+2024-11-01,Referral,30800.0
+2024-11-01,Email Marketing,37400.0
+2024-11-01,Affiliate,58900.0
+2024-12-01,Organic Search,56700.0
+2024-12-01,Paid Search,169700.0
+2024-12-01,Social Media,123700.0
+2024-12-01,Referral,23200.0
+2024-12-01,Email Marketing,29500.0
+2024-12-01,Affiliate,42400.0
+2025-01-01,Organic Search,55300.0
+2025-01-01,Paid Search,168200.0
+2025-01-01,Social Media,128200.0
+2025-01-01,Referral,23900.0
+2025-01-01,Email Marketing,27600.0
+2025-01-01,Affiliate,49800.0
+2025-02-01,Organic Search,51800.0
+2025-02-01,Paid Search,178800.0
+2025-02-01,Social Media,132100.0
+2025-02-01,Referral,22600.0
+2025-02-01,Email Marketing,28800.0
+2025-02-01,Affiliate,42100.0
+2025-03-01,Organic Search,58800.0
+2025-03-01,Paid Search,176800.0
+2025-03-01,Social Media,129900.0
+2025-03-01,Referral,25400.0
+2025-03-01,Email Marketing,29000.0
+2025-03-01,Affiliate,39900.0
+2025-04-01,Organic Search,53100.0
+2025-04-01,Paid Search,183300.0
+2025-04-01,Social Media,139900.0
+2025-04-01,Referral,27300.0
+2025-04-01,Email Marketing,28000.0
+2025-04-01,Affiliate,49500.0
+2025-05-01,Organic Search,60300.0
+2025-05-01,Paid Search,166900.0
+2025-05-01,Social Media,130500.0
+2025-05-01,Referral,25900.0
+2025-05-01,Email Marketing,29900.0
+2025-05-01,Affiliate,47400.0
+2025-06-01,Organic Search,60400.0
+2025-06-01,Paid Search,160100.0
+2025-06-01,Social Media,118900.0
+2025-06-01,Referral,26600.0
+2025-06-01,Email Marketing,28700.0
+2025-06-01,Affiliate,48100.0
+2025-07-01,Organic Search,54800.0
+2025-07-01,Paid Search,178300.0
+2025-07-01,Social Media,133800.0
+2025-07-01,Referral,24500.0
+2025-07-01,Email Marketing,29800.0
+2025-07-01,Affiliate,43500.0
+2025-08-01,Organic Search,56900.0
+2025-08-01,Paid Search,193400.0
+2025-08-01,Social Media,132100.0
+2025-08-01,Referral,24100.0
+2025-08-01,Email Marketing,29400.0
+2025-08-01,Affiliate,47900.0
+2025-09-01,Organic Search,55200.0
+2025-09-01,Paid Search,160900.0
+2025-09-01,Social Media,144800.0
+2025-09-01,Referral,27400.0
+2025-09-01,Email Marketing,28400.0
+2025-09-01,Affiliate,43200.0
+2025-10-01,Organic Search,66300.0
+2025-10-01,Paid Search,207700.0
+2025-10-01,Social Media,151500.0
+2025-10-01,Referral,29500.0
+2025-10-01,Email Marketing,37600.0
+2025-10-01,Affiliate,63500.0
+2025-11-01,Organic Search,68100.0
+2025-11-01,Paid Search,203200.0
+2025-11-01,Social Media,165800.0
+2025-11-01,Referral,35100.0
+2025-11-01,Email Marketing,38800.0
+2025-11-01,Affiliate,56600.0
+2025-12-01,Organic Search,46700.0
+2025-12-01,Paid Search,134500.0
+2025-12-01,Social Media,98400.0
+2025-12-01,Referral,20000.0
+2025-12-01,Email Marketing,26100.0
+2025-12-01,Affiliate,40700.0

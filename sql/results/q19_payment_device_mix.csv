@@ -1,0 +1,22 @@
+device,payment_method,orders,revenue,pct_of_device_orders
+Desktop,UPI,2642,24761011.0,41.0
+Desktop,Credit Card,1142,9656552.0,17.7
+Desktop,Cash on Delivery,1090,11022826.0,16.9
+Desktop,Debit Card,770,6853705.0,12.0
+Desktop,Net Banking,401,4009308.0,6.2
+Desktop,Wallet,246,2199078.0,3.8
+Desktop,Unknown,146,1461177.0,2.3
+Mobile App,UPI,6363,58100813.0,41.5
+Mobile App,Credit Card,2692,26742181.0,17.6
+Mobile App,Cash on Delivery,2551,23781083.0,16.7
+Mobile App,Debit Card,1803,16196445.0,11.8
+Mobile App,Net Banking,921,9599443.0,6.0
+Mobile App,Wallet,608,5129947.0,4.0
+Mobile App,Unknown,377,3287576.0,2.5
+Mobile Web,UPI,2457,23909023.0,40.2
+Mobile Web,Credit Card,1110,11461363.0,18.1
+Mobile Web,Cash on Delivery,1063,10018259.0,17.4
+Mobile Web,Debit Card,684,6517358.0,11.2
+Mobile Web,Net Banking,374,3160193.0,6.1
+Mobile Web,Wallet,260,2061214.0,4.2
+Mobile Web,Unknown,171,1623834.0,2.8

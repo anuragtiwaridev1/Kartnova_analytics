@@ -1,0 +1,6 @@
+check_name,failures
+delivery before order,0
+return before delivery,0
+discount outside 0-100,0
+price below cost (list),0
+cancelled order with a return,0

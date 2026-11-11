@@ -1,0 +1,29 @@
+category,return_reason,returns,refund_value,pct_of_category_returns,reason_rank
+Beauty & Personal Care,Quality Issue,163,220118.0,26.4,1
+Beauty & Personal Care,Changed Mind,155,213946.0,25.1,2
+Beauty & Personal Care,Not as Described,153,214472.0,24.8,3
+Beauty & Personal Care,Damaged in Transit,147,223600.0,23.8,4
+Books & Stationery,Quality Issue,46,63665.0,30.7,1
+Books & Stationery,Not as Described,38,42030.0,25.3,2
+Books & Stationery,Damaged in Transit,35,40809.0,23.3,3
+Books & Stationery,Changed Mind,31,48454.0,20.7,4
+Electronics,Not as Described,124,3221637.0,26.6,1
+Electronics,Wrong Item Delivered,121,2661135.0,25.9,2
+Electronics,Changed Mind,116,2983384.0,24.8,3
+Electronics,Defective Product,106,2796083.0,22.7,4
+Fashion,Quality Issue,741,1717008.0,25.4,1
+Fashion,Changed Mind,735,1672952.0,25.2,2
+Fashion,Not as Described,724,1613839.0,24.8,3
+Fashion,Size/Fit Issue,714,1600741.0,24.5,4
+Grocery & Gourmet,Quality Issue,65,47053.0,31.7,1
+Grocery & Gourmet,Changed Mind,52,36681.0,25.4,2
+Grocery & Gourmet,Damaged in Transit,50,32776.0,24.4,3
+Grocery & Gourmet,Not as Described,38,22681.0,18.5,4
+Home & Kitchen,Changed Mind,142,423625.0,27.1,1
+Home & Kitchen,Damaged in Transit,132,300980.0,25.2,2
+Home & Kitchen,Quality Issue,130,405478.0,24.8,3
+Home & Kitchen,Not as Described,120,324226.0,22.9,4
+Sports & Fitness,Damaged in Transit,177,401185.0,28.3,1
+Sports & Fitness,Not as Described,158,389369.0,25.3,2
+Sports & Fitness,Changed Mind,153,380046.0,24.5,3
+Sports & Fitness,Quality Issue,137,324454.0,21.9,4

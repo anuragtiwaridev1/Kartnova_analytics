@@ -1,0 +1,29 @@
+antecedent,consequent,orders_together,support,confidence,lift
+Academic,Art Supplies,48,0.0017,0.0541,2.1124
+Appliances,Cookware,855,0.0307,0.5411,3.4993
+Art Supplies,Fiction,328,0.0118,0.4594,5.2603
+Beverages,Snacks,1696,0.0609,0.565,3.9843
+Cookware,Appliances,855,0.0307,0.1984,3.4993
+Fashion Accessories,Women's Wear,821,0.0295,0.4136,4.5617
+Fiction,Art Supplies,328,0.0118,0.1348,5.2603
+Footwear,Men's Wear,2027,0.0727,0.61,2.7452
+Fragrances,Skincare,242,0.0087,0.201,1.347
+Furniture,Home Decor,87,0.0031,0.051,1.2421
+Grooming,Haircare,120,0.0043,0.1356,1.4507
+Gym Equipment,Sportswear,927,0.0333,0.3183,4.5337
+Haircare,Skincare,1235,0.0443,0.4741,3.177
+Headphones,Smartphones,813,0.0292,0.6599,7.6858
+Home Decor,Cookware,243,0.0087,0.2122,1.3724
+Laptop Accessories,Laptops,430,0.0154,0.4343,13.2013
+Laptops,Laptop Accessories,430,0.0154,0.4689,13.2013
+Men's Wear,Footwear,2027,0.0727,0.3273,2.7452
+Office Supplies,Fiction,103,0.0037,0.1708,1.9559
+Organic Foods,Snacks,152,0.0055,0.1902,1.3416
+Outdoor Gear,Gym Equipment,150,0.0054,0.1877,1.7968
+Skincare,Haircare,1235,0.0443,0.2969,3.177
+Smartphones,Headphones,813,0.0292,0.3397,7.6858
+Snacks,Beverages,1696,0.0609,0.4291,3.9843
+Sportswear,Gym Equipment,927,0.0333,0.4737,4.5337
+Staples,Beverages,148,0.0053,0.1416,1.3149
+Women's Wear,Fashion Accessories,821,0.0295,0.3249,4.5617
+Yoga,Sportswear,77,0.0028,0.1205,1.7161

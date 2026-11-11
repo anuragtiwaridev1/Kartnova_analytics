@@ -1,0 +1,16 @@
+table,issue,rows_affected,action
+customers,duplicate customer_id,0,drop
+customers,inconsistent city casing / whitespace,450,strip + title-case
+customers,impossible age (<18 or >80),8,set NaN
+customers,missing age (incl. invalid),368,impute median by city_tier
+customers,missing gender,180,label 'Unknown'
+orders,duplicate order rows,291,drop
+orders,delivery_date earlier than order_date,25,re-impute order_date + 5d (≈ median lead time)
+orders,missing payment_method,728,label 'Unknown'
+orders,orphan customer_id (FK check),0,none found
+order_items,duplicate line items,30,drop
+order_items,non-positive quantity,12,set to 1
+order_items,orphan order_id (FK check),0,none found
+order_items,orphan product_id (FK check),0,none found
+returns,orphan order_item_id (FK check),0,none found
+dim_date,"generated calendar 2023-2026 (+fiscal, festive flag)",1461,created

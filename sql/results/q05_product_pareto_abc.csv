@@ -1,0 +1,145 @@
+rnk,product_id,product_name,category,revenue,cum_revenue_pct,abc_class
+1,P001,Sahara Smartphones Model 1,Electronics,37235325.0,14.2,A
+2,P003,Pinnacle Smartphones Model 3,Electronics,18439649.0,21.3,A
+3,P006,Tarang Smartphones Model 6,Electronics,12007523.0,25.9,A
+4,P010,Nimbus Laptops Model 4,Electronics,10538108.0,29.9,A
+5,P004,Kiara Smartphones Model 4,Electronics,10125964.0,33.8,A
+6,P002,Tarang Smartphones Model 2,Electronics,10122615.0,37.6,A
+7,P008,Indus Laptops Model 2,Electronics,8541816.0,40.9,A
+8,P012,Zenith Laptops Model 6,Electronics,7707451.0,43.9,A
+9,P011,Pinnacle Laptops Model 5,Electronics,7703086.0,46.8,A
+10,P007,Aurora Laptops Model 1,Electronics,6995930.0,49.5,A
+11,P024,Sahara Headphones Model 6,Electronics,5859915.0,51.7,A
+12,P026,Aurora Men's Wear Model 2,Fashion,5763302.0,53.9,A
+13,P025,Lumen Men's Wear Model 1,Fashion,5641022.0,56.1,A
+14,P009,Tarang Laptops Model 3,Electronics,5012523.0,58.0,A
+15,P048,Lumen Cookware Model 4,Home & Kitchen,4490479.0,59.7,A
+16,P110,Meridian Sportswear Model 1,Sports & Fitness,4464158.0,61.4,A
+17,P020,Sahara Headphones Model 2,Electronics,3937028.0,62.9,A
+18,P046,Orbit Cookware Model 2,Home & Kitchen,3572537.0,64.3,A
+19,P049,Tarang Cookware Model 5,Home & Kitchen,3473210.0,65.6,A
+20,P060,Aurora Appliances Model 1,Home & Kitchen,2943853.0,66.7,A
+21,P027,Vertex Men's Wear Model 3,Fashion,2864376.0,67.8,A
+22,P043,Zenith Fashion Accessories Model 4,Fashion,2711761.0,68.9,A
+23,P061,Sahara Appliances Model 2,Home & Kitchen,2710016.0,69.9,A
+24,P071,Orbit Haircare Model 2,Beauty & Personal Care,2617204.0,70.9,B
+25,P005,Kiara Smartphones Model 5,Electronics,2604837.0,71.9,B
+26,P040,Indus Fashion Accessories Model 1,Fashion,2485485.0,72.9,B
+27,P085,Aurora Snacks Model 1,Grocery & Gourmet,2433687.0,73.8,B
+28,P118,Pinnacle Outdoor Gear Model 4,Sports & Fitness,2385370.0,74.7,B
+29,P039,Kiara Footwear Model 5,Fashion,2169582.0,75.5,B
+30,P045,Lumen Cookware Model 1,Home & Kitchen,2098510.0,76.3,B
+31,P117,Tarang Outdoor Gear Model 3,Sports & Fitness,1941390.0,77.1,B
+32,P028,Kiara Men's Wear Model 4,Fashion,1836766.0,77.8,B
+33,P056,Pinnacle Home Decor Model 2,Home & Kitchen,1836179.0,78.5,B
+34,P072,Vertex Haircare Model 3,Beauty & Personal Care,1760571.0,79.2,B
+35,P074,Kiara Haircare Model 5,Beauty & Personal Care,1708820.0,79.8,B
+36,P116,Lumen Outdoor Gear Model 2,Sports & Fitness,1691625.0,80.5,B
+37,P029,Tarang Men's Wear Model 5,Fashion,1603630.0,81.1,B
+38,P034,Zenith Women's Wear Model 5,Fashion,1599548.0,81.7,B
+39,P126,Meridian Fiction Model 2,Books & Stationery,1531948.0,82.3,B
+40,P044,Orbit Fashion Accessories Model 5,Fashion,1530372.0,82.9,B
+41,P068,Vertex Skincare Model 4,Beauty & Personal Care,1509724.0,83.4,B
+42,P032,Tarang Women's Wear Model 3,Fashion,1467348.0,84.0,B
+43,P105,Tarang Gym Equipment Model 1,Sports & Fitness,1375501.0,84.5,B
+44,P037,Lumen Footwear Model 3,Fashion,1280946.0,85.0,B
+45,P041,Sahara Fashion Accessories Model 2,Fashion,1211972.0,85.5,B
+46,P069,Pinnacle Skincare Model 5,Beauty & Personal Care,1182872.0,85.9,B
+47,P035,Zenith Footwear Model 1,Fashion,1182505.0,86.4,B
+48,P127,Pinnacle Fiction Model 3,Books & Stationery,1112802.0,86.8,B
+49,P066,Indus Skincare Model 2,Beauty & Personal Care,1112174.0,87.2,B
+50,P086,Kiara Snacks Model 2,Grocery & Gourmet,1080662.0,87.6,B
+51,P014,Orbit Laptop Accessories Model 2,Electronics,1042187.0,88.0,B
+52,P073,Kiara Haircare Model 4,Beauty & Personal Care,1037157.0,88.4,B
+53,P033,Zenith Women's Wear Model 4,Fashion,1034024.0,88.8,B
+54,P054,Aurora Furniture Model 5,Home & Kitchen,1025670.0,89.2,B
+55,P050,Aurora Furniture Model 1,Home & Kitchen,996017.0,89.6,B
+56,P077,Sahara Fragrances Model 3,Beauty & Personal Care,992245.0,90.0,B
+57,P063,Lumen Appliances Model 4,Home & Kitchen,992208.0,90.4,C
+58,P019,Orbit Headphones Model 1,Electronics,931500.0,90.7,C
+59,P119,Meridian Outdoor Gear Model 5,Sports & Fitness,865116.0,91.0,C
+60,P121,Kiara Yoga Model 2,Sports & Fitness,839769.0,91.4,C
+61,P087,Pinnacle Snacks Model 3,Grocery & Gourmet,810498.0,91.7,C
+62,P080,Tarang Grooming Model 1,Beauty & Personal Care,775960.0,92.0,C
+63,P030,Aurora Women's Wear Model 1,Fashion,649619.0,92.2,C
+64,P055,Zenith Home Decor Model 1,Home & Kitchen,637337.0,92.5,C
+65,P092,Lumen Beverages Model 3,Grocery & Gourmet,606123.0,92.7,C
+66,P022,Pinnacle Headphones Model 4,Electronics,590298.0,92.9,C
+67,P013,Sahara Laptop Accessories Model 1,Electronics,586214.0,93.1,C
+68,P031,Orbit Women's Wear Model 2,Fashion,582469.0,93.4,C
+69,P021,Pinnacle Headphones Model 3,Electronics,579193.0,93.6,C
+70,P059,Vertex Home Decor Model 5,Home & Kitchen,562152.0,93.8,C
+71,P075,Meridian Fragrances Model 1,Beauty & Personal Care,532047.0,94.0,C
+72,P091,Zenith Beverages Model 2,Grocery & Gourmet,530314.0,94.2,C
+73,P047,Zenith Cookware Model 3,Home & Kitchen,521579.0,94.4,C
+74,P036,Kiara Footwear Model 2,Fashion,506744.0,94.6,C
+75,P038,Kiara Footwear Model 4,Fashion,493067.0,94.8,C
+76,P058,Vertex Home Decor Model 4,Home & Kitchen,471111.0,95.0,C
+77,P051,Indus Furniture Model 2,Home & Kitchen,468542.0,95.2,C
+78,P070,Aurora Haircare Model 1,Beauty & Personal Care,464993.0,95.3,C
+79,P106,Aurora Gym Equipment Model 2,Sports & Fitness,461573.0,95.5,C
+80,P132,Zenith Academic Model 3,Books & Stationery,448658.0,95.7,C
+81,P067,Meridian Skincare Model 3,Beauty & Personal Care,444609.0,95.8,C
+82,P125,Indus Fiction Model 1,Books & Stationery,403958.0,96.0,C
+83,P042,Vertex Fashion Accessories Model 3,Fashion,400614.0,96.2,C
+84,P114,Aurora Sportswear Model 5,Sports & Fitness,368084.0,96.3,C
+85,P113,Zenith Sportswear Model 4,Sports & Fitness,364010.0,96.4,C
+86,P143,Nimbus Art Supplies Model 4,Books & Stationery,360009.0,96.6,C
+87,P138,Pinnacle Office Supplies Model 4,Books & Stationery,352033.0,96.7,C
+88,P065,Nimbus Skincare Model 1,Beauty & Personal Care,342326.0,96.8,C
+89,P097,Zenith Staples Model 3,Grocery & Gourmet,332594.0,97.0,C
+90,P107,Tarang Gym Equipment Model 3,Sports & Fitness,309195.0,97.1,C
+91,P124,Kiara Yoga Model 5,Sports & Fitness,297237.0,97.2,C
+92,P131,Pinnacle Academic Model 2,Books & Stationery,289318.0,97.3,C
+93,P098,Lumen Staples Model 4,Grocery & Gourmet,288495.0,97.4,C
+94,P112,Aurora Sportswear Model 3,Sports & Fitness,285569.0,97.5,C
+95,P023,Orbit Headphones Model 5,Electronics,275124.0,97.6,C
+96,P140,Tarang Art Supplies Model 1,Books & Stationery,267948.0,97.7,C
+97,P137,Aurora Office Supplies Model 3,Books & Stationery,260093.0,97.8,C
+98,P102,Tarang Organic Foods Model 3,Grocery & Gourmet,246657.0,97.9,C
+99,P052,Pinnacle Furniture Model 3,Home & Kitchen,234559.0,98.0,C
+100,P120,Orbit Yoga Model 1,Sports & Fitness,221974.0,98.1,C
+101,P017,Orbit Laptop Accessories Model 5,Electronics,221506.0,98.2,C
+102,P136,Zenith Office Supplies Model 2,Books & Stationery,218761.0,98.3,C
+103,P128,Pinnacle Fiction Model 4,Books & Stationery,214214.0,98.4,C
+104,P101,Nimbus Organic Foods Model 2,Grocery & Gourmet,207323.0,98.4,C
+105,P062,Sahara Appliances Model 3,Home & Kitchen,205550.0,98.5,C
+106,P111,Vertex Sportswear Model 2,Sports & Fitness,176269.0,98.6,C
+107,P064,Meridian Appliances Model 5,Home & Kitchen,166089.0,98.6,C
+108,P053,Vertex Furniture Model 4,Home & Kitchen,165771.0,98.7,C
+109,P081,Indus Grooming Model 2,Beauty & Personal Care,164528.0,98.8,C
+110,P109,Sahara Gym Equipment Model 5,Sports & Fitness,157702.0,98.8,C
+111,P016,Orbit Laptop Accessories Model 4,Electronics,157201.0,98.9,C
+112,P122,Kiara Yoga Model 3,Sports & Fitness,145570.0,98.9,C
+113,P015,Indus Laptop Accessories Model 3,Electronics,139269.0,99.0,C
+114,P108,Kiara Gym Equipment Model 4,Sports & Fitness,135104.0,99.0,C
+115,P094,Orbit Beverages Model 5,Grocery & Gourmet,134086.0,99.1,C
+116,P134,Indus Academic Model 5,Books & Stationery,132436.0,99.2,C
+117,P090,Indus Beverages Model 1,Grocery & Gourmet,131198.0,99.2,C
+118,P088,Lumen Snacks Model 4,Grocery & Gourmet,130299.0,99.3,C
+119,P135,Aurora Office Supplies Model 1,Books & Stationery,128814.0,99.3,C
+120,P142,Lumen Art Supplies Model 3,Books & Stationery,126060.0,99.3,C
+121,P093,Orbit Beverages Model 4,Grocery & Gourmet,125994.0,99.4,C
+122,P141,Orbit Art Supplies Model 2,Books & Stationery,121493.0,99.4,C
+123,P089,Indus Snacks Model 5,Grocery & Gourmet,118727.0,99.5,C
+124,P129,Nimbus Fiction Model 5,Books & Stationery,117674.0,99.5,C
+125,P076,Zenith Fragrances Model 2,Beauty & Personal Care,105677.0,99.6,C
+126,P057,Indus Home Decor Model 3,Home & Kitchen,102270.0,99.6,C
+127,P018,Tarang Laptop Accessories Model 6,Electronics,101836.0,99.7,C
+128,P115,Lumen Outdoor Gear Model 1,Sports & Fitness,99005.0,99.7,C
+129,P078,Meridian Fragrances Model 4,Beauty & Personal Care,84882.0,99.7,C
+130,P123,Orbit Yoga Model 4,Sports & Fitness,76754.0,99.8,C
+131,P084,Pinnacle Grooming Model 5,Beauty & Personal Care,66017.0,99.8,C
+132,P079,Indus Fragrances Model 5,Beauty & Personal Care,63411.0,99.8,C
+133,P130,Sahara Academic Model 1,Books & Stationery,61925.0,99.8,C
+134,P099,Pinnacle Staples Model 5,Grocery & Gourmet,60074.0,99.8,C
+135,P082,Zenith Grooming Model 3,Beauty & Personal Care,54181.0,99.9,C
+136,P100,Nimbus Organic Foods Model 1,Grocery & Gourmet,52703.0,99.9,C
+137,P096,Lumen Staples Model 2,Grocery & Gourmet,50942.0,99.9,C
+138,P095,Tarang Staples Model 1,Grocery & Gourmet,39501.0,99.9,C
+139,P139,Sahara Office Supplies Model 5,Books & Stationery,38101.0,99.9,C
+140,P103,Meridian Organic Foods Model 4,Grocery & Gourmet,35843.0,100.0,C
+141,P133,Indus Academic Model 4,Books & Stationery,34322.0,100.0,C
+142,P144,Sahara Art Supplies Model 5,Books & Stationery,33541.0,100.0,C
+143,P083,Tarang Grooming Model 4,Beauty & Personal Care,30512.0,100.0,C
+144,P104,Indus Organic Foods Model 5,Grocery & Gourmet,26793.0,100.0,C

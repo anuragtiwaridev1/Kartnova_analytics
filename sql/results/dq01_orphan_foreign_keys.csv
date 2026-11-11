@@ -1,0 +1,5 @@
+check_name,failures
+order_items -> orders,0
+orders -> customers,0
+order_items -> products,0
+returns -> order_items,0

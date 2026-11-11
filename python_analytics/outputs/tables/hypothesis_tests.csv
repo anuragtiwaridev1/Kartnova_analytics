@@ -1,0 +1,7 @@
+test,null_hypothesis,statistic,p_value,effect,conclusion
+COD vs prepaid cancellation,Cancellation rate equal,326.293,6.17e-73,"COD 8.9% vs 3.3%; diff 95% CI [4.8, 6.4] pp",REJECT H0 (significant)
+Discount band vs return rate,Return rate independent of discount band,161.441,8.96e-35,"return % by band: 0%=8.3, 1-10%=8.8, 11-20%=8.6, >20%=12.9",REJECT H0 (significant)
+Delivery days across regions,Same distribution of delivery days,2591.122,0.0,"median days: Central=6, East=6, North=5, North-East=8, South=5, West=5",REJECT H0 (significant)
+12-m gross profit per customer by channel,Same LTV distribution across channels,38.171,3.49e-07,"median ₹: Referral=5,393, Organic=5,250, Email=4,710, Affiliate=4,344, Social=4,226, Paid=4,027",REJECT H0 (significant)
+Festive vs non-festive AOV,AOV equal,68212165.5,1.1e-08,"ΔAOV ₹-529, bootstrap 95% CI [₹-983, ₹-89]",REJECT H0 (significant)
+Discount % vs units per line (Spearman),No monotonic relation,0.004,0.285,rho=0.004,Fail to reject H0

@@ -1,0 +1,16 @@
+antecedent,consequent,orders_together,support_pct,confidence_pct,lift
+Laptop Accessories,Laptops,430,1.54,43.4,13.2
+Laptops,Laptop Accessories,430,1.54,46.9,13.2
+Headphones,Smartphones,813,2.92,66.0,7.69
+Smartphones,Headphones,813,2.92,34.0,7.69
+Art Supplies,Fiction,328,1.18,45.9,5.26
+Fiction,Art Supplies,328,1.18,13.5,5.26
+Fashion Accessories,Women's Wear,821,2.95,41.4,4.56
+Women's Wear,Fashion Accessories,821,2.95,32.5,4.56
+Gym Equipment,Sportswear,927,3.33,31.8,4.53
+Sportswear,Gym Equipment,927,3.33,47.4,4.53
+Beverages,Snacks,1696,6.09,56.5,3.98
+Snacks,Beverages,1696,6.09,42.9,3.98
+Appliances,Cookware,855,3.07,54.1,3.5
+Cookware,Appliances,855,3.07,19.8,3.5
+Haircare,Skincare,1235,4.43,47.4,3.18

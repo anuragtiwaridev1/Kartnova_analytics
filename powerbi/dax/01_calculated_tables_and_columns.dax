@@ -1,0 +1,121 @@
+// =====================================================================================================
+//  01_calculated_tables_and_columns.dax
+//  Create via  Modeling > New table / New column.  Table names and columns match power_query_m.pq
+// =====================================================================================================
+
+// ------------------------------------------------------------------ CALCULATED TABLES
+
+// Date dimension (continuous calendar incl. India fiscal year Apr-Mar). Mark as date table on [Date].
+Dim_Date =
+ADDCOLUMNS (
+    CALENDAR ( DATE ( 2023, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    "Year",              YEAR ( [Date] ),
+    "Quarter",           "Q" & ROUNDUP ( MONTH ( [Date] ) / 3, 0 ),
+    "Month Number",      MONTH ( [Date] ),
+    "Month Name",        FORMAT ( [Date], "MMMM" ),
+    "Month Short",       FORMAT ( [Date], "MMM" ),
+    "Year-Month",        FORMAT ( [Date], "YYYY-MM" ),
+    "Month Start",       DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
+    "Day Name",          FORMAT ( [Date], "dddd" ),
+    "Is Weekend",        IF ( WEEKDAY ( [Date], 2 ) >= 6, 1, 0 ),
+    "Fiscal Year",       "FY" & RIGHT ( IF ( MONTH ( [Date] ) >= 4, YEAR ( [Date] ) + 1, YEAR ( [Date] ) ), 2 ),
+    "Fiscal Quarter",    "FQ" & ( INT ( MOD ( MONTH ( [Date] ) - 4, 12 ) / 3 ) + 1 ),
+    "Is Festive Season", IF ( MONTH ( [Date] ) IN { 10, 11 }, 1, 0 )
+)
+
+// Disconnected table: month offsets for the cohort-retention matrix (columns of the matrix)
+Offsets = SELECTCOLUMNS ( GENERATESERIES ( 0, 12, 1 ), "Offset", [Value] )
+
+// What-if parameter: Top-N selector (create via Modeling > New parameter, shown here as its generated DAX)
+'Top N' = GENERATESERIES ( 3, 20, 1 )
+// + the companion measure is in 02_measures.dax:  Top N Value = SELECTEDVALUE ( 'Top N'[Top N], 10 )
+
+// What-if parameter: discount ceiling for the pricing simulation
+'Discount Cap' = GENERATESERIES ( 0, 40, 5 )
+
+// Disconnected table for the dynamic "metric switcher" slicer
+'Metric Selector' =
+DATATABLE (
+    "Metric", STRING, "Sort", INTEGER,
+    { { "Net Revenue", 1 }, { "Gross Profit", 2 }, { "Orders", 3 }, { "Active Customers", 4 }, { "AOV", 5 } }
+)
+
+// Empty home table for measures (hide its dummy column)
+_Measures = DATATABLE ( "Dummy", INTEGER, { { 1 } } )
+
+
+// ------------------------------------------------------------------ CALCULATED COLUMNS : Dim_Customer
+// (Context transition: each customer row is turned into a filter on Fact_Sales via the relationship.)
+
+First Order Date = CALCULATE ( MIN ( Fact_Sales[order_date] ) )
+
+Last Order Date  = CALCULATE ( MAX ( Fact_Sales[order_date] ) )
+
+Cohort Month =
+IF ( NOT ISBLANK ( Dim_Customer[First Order Date] ),
+     DATE ( YEAR ( Dim_Customer[First Order Date] ), MONTH ( Dim_Customer[First Order Date] ), 1 ) )
+
+Lifetime Orders  =
+VAR n = CALCULATE ( DISTINCTCOUNT ( Fact_Sales[order_id] ) )
+RETURN IF ( n = 0, BLANK (), n )                                                  // customers who never received an order stay BLANK
+
+Lifetime Revenue = CALCULATE ( SUM ( Fact_Sales[net_revenue] ) - SUM ( Fact_Sales[refund_amt] ) )
+
+Lifetime Gross Profit = CALCULATE ( SUM ( Fact_Sales[gross_profit] ) )
+
+Recency Days =
+VAR SnapshotDate = CALCULATE ( MAX ( Fact_Sales[order_date] ), ALL ( Fact_Sales ) )   // "today" = last date in data
+RETURN IF ( ISBLANK ( Dim_Customer[Last Order Date] ), BLANK (), DATEDIFF ( Dim_Customer[Last Order Date], SnapshotDate, DAY ) )
+
+// ---- RFM scores (quintiles, 5 = best). Ranks use a unique sort key (value, customer number) so ties break
+// ---- deterministically - the same rule as NTILE(5) ... ORDER BY value, customer_id in the SQL layer.
+Customer Number = VALUE ( MID ( Dim_Customer[customer_id], 2, 5 ) )
+
+R Score =
+VAR Pool = FILTER ( ALL ( Dim_Customer ), NOT ISBLANK ( Dim_Customer[Lifetime Orders] ) )
+VAR N    = COUNTROWS ( Pool )
+VAR MyKey = Dim_Customer[Recency Days] * 100000 + Dim_Customer[Customer Number]
+VAR Rk   = COUNTROWS ( FILTER ( Pool, Dim_Customer[Recency Days] * 100000 + Dim_Customer[Customer Number] < MyKey ) ) + 1
+RETURN IF ( ISBLANK ( Dim_Customer[Lifetime Orders] ), BLANK (), 5 - INT ( 5 * ( Rk - 1 ) / N ) )   // smallest recency => 5
+
+F Score =
+VAR Pool = FILTER ( ALL ( Dim_Customer ), NOT ISBLANK ( Dim_Customer[Lifetime Orders] ) )
+VAR N    = COUNTROWS ( Pool )
+VAR MyKey = Dim_Customer[Lifetime Orders] * 100000 + Dim_Customer[Customer Number]
+VAR Rk   = COUNTROWS ( FILTER ( Pool, Dim_Customer[Lifetime Orders] * 100000 + Dim_Customer[Customer Number] < MyKey ) ) + 1
+RETURN IF ( ISBLANK ( Dim_Customer[Lifetime Orders] ), BLANK (), 1 + INT ( 5 * ( Rk - 1 ) / N ) )
+
+M Score =
+VAR Pool = FILTER ( ALL ( Dim_Customer ), NOT ISBLANK ( Dim_Customer[Lifetime Orders] ) )
+VAR N    = COUNTROWS ( Pool )
+VAR MyKey = Dim_Customer[Lifetime Revenue] + Dim_Customer[Customer Number] / 1000000
+VAR Rk   = COUNTROWS ( FILTER ( Pool, Dim_Customer[Lifetime Revenue] + Dim_Customer[Customer Number] / 1000000 < MyKey ) ) + 1
+RETURN IF ( ISBLANK ( Dim_Customer[Lifetime Orders] ), BLANK (), 1 + INT ( 5 * ( Rk - 1 ) / N ) )
+
+RFM Segment =
+VAR R = Dim_Customer[R Score]  VAR F = Dim_Customer[F Score]  VAR M = Dim_Customer[M Score]
+RETURN
+    SWITCH ( TRUE (),
+        ISBLANK ( R ),                      BLANK (),
+        R >= 4 && F >= 4 && M >= 4,         "Champions",
+        R >= 3 && F >= 4,                   "Loyal Customers",
+        R >= 4 && F <= 2,                   "New / Promising",
+        R >= 3 && F >= 3,                   "Potential Loyalists",
+        R <= 2 && F >= 4 && M >= 4,         "Can't Lose Them",
+        R <= 2 && F >= 3,                   "At Risk",
+        R <= 2 && F <= 2 && M <= 2,         "Lost",
+        "Needs Attention" )
+
+RFM Segment Order =           // use as "Sort by column" for RFM Segment (priority: best -> worst)
+SWITCH ( Dim_Customer[RFM Segment],
+    "Champions", 1, "Loyal Customers", 2, "Potential Loyalists", 3, "New / Promising", 4,
+    "Needs Attention", 5, "At Risk", 6, "Can't Lose Them", 7, "Lost", 8, 9 )
+
+// ---- 12-month customer value (only meaningful for customers with a full 12-month window)
+Is Mature 12M = Dim_Customer[signup_date] <= DATE ( 2024, 12, 31 )
+
+GP 12M =
+VAR SignupDate = Dim_Customer[signup_date]
+RETURN CALCULATE ( SUM ( Fact_Sales[gross_profit] ), Fact_Sales[order_date] <= SignupDate + 365 )
+
+Age Group Order = SWITCH ( Dim_Customer[age_group], "18-24", 1, "25-34", 2, "35-44", 3, "45-54", 4, "55+", 5, 6 )

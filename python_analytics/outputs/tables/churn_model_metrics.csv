@@ -1,0 +1,3 @@
+model,roc_auc,pr_auc,brier
+Logistic Regression (baseline),0.8254,0.9218,0.1508
+Gradient Boosting,0.8124,0.9159,0.1564

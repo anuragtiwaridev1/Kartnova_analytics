@@ -1,0 +1,8 @@
+payment_method,cancel_rate_pct
+Net Banking,2.97
+UPI,3.04
+Wallet,3.13
+Credit Card,3.4
+Debit Card,3.67
+Unknown,4.67
+Cash on Delivery,8.85

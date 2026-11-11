@@ -1,0 +1,89 @@
+// =====================================================================================================
+//  03_dax_queries.dax  |  Run in Power BI Desktop > DAX query view (each EVALUATE block separately).
+//  Purpose: (a) VALIDATE measures against SQL / Python results (reconciliation), (b) ad-hoc analysis,
+//           (c) show DAX query skills (DEFINE, VAR, SUMMARIZECOLUMNS, TOPN, GROUPBY, ADDCOLUMNS).
+// =====================================================================================================
+
+// ---- Q1 | Reconciliation: yearly KPIs - must match sql/results/q01_kpi_scorecard_by_year.csv
+EVALUATE
+SUMMARIZECOLUMNS (
+    Dim_Date[Year],
+    "Net Revenue", [Net Revenue], "Kept Revenue", [Kept Revenue], "Gross Profit", [Gross Profit],
+    "Gross Margin %", [Gross Margin %], "Orders", [Orders], "Active Customers", [Active Customers],
+    "AOV", [AOV], "Return Rate %", [Return Rate %]
+)
+ORDER BY Dim_Date[Year]
+
+// ---- Q2 | Category profitability, ranked
+EVALUATE
+SUMMARIZECOLUMNS (
+    Dim_Product[category],
+    "Net Revenue", [Net Revenue], "Revenue Share", [Revenue % of Total],
+    "Gross Margin %", [Gross Margin %], "Return Rate %", [Return Rate %], "Margin Rank", [Category Margin Rank]
+)
+ORDER BY [Net Revenue] DESC
+
+// ---- Q3 | Top 10 customers by lifetime revenue (uses calculated columns on Dim_Customer)
+EVALUATE
+TOPN (
+    10,
+    SELECTCOLUMNS ( Dim_Customer, "Customer", Dim_Customer[customer_id], "City", Dim_Customer[city],
+                    "Channel", Dim_Customer[acquisition_channel], "Orders", Dim_Customer[Lifetime Orders],
+                    "Lifetime Revenue", Dim_Customer[Lifetime Revenue], "RFM Segment", Dim_Customer[RFM Segment] ),
+    [Lifetime Revenue], DESC
+)
+
+// ---- Q4 | Pricing what-if using DEFINE (local measures, nothing added to the model):
+//         "What would profit be if no line was discounted deeper than 10%?"  (no volume loss assumed)
+DEFINE
+    MEASURE _Measures[Net Revenue @10% Cap] = SUMX ( Fact_Sales, Fact_Sales[gross_sales] * ( 1 - MIN ( Fact_Sales[discount_pct], 10 ) / 100 ) )
+    MEASURE _Measures[Uplift @10% Cap]      = [Net Revenue @10% Cap] - [Net Revenue]
+EVALUATE
+SUMMARIZECOLUMNS ( Dim_Product[category], "Net Revenue", [Net Revenue], "Revenue @10% cap", [Net Revenue @10% Cap],
+                   "Profit uplift", [Uplift @10% Cap], "Uplift % of GP", DIVIDE ( [Uplift @10% Cap], [Gross Profit] ) )
+ORDER BY [Profit uplift] DESC
+
+// ---- Q5 | Channel economics: spend, CAC, 12-month LTV, LTV:CAC and payback
+EVALUATE
+SUMMARIZECOLUMNS (
+    Dim_Channel[channel],
+    "Spend", [Marketing Spend], "New Customers", [New Customers], "CAC", [CAC],
+    "LTV 12M GP", [LTV 12M Gross Profit], "LTV:CAC", [LTV to CAC], "Payback (months)", [CAC Payback Months], "Action", [Channel Health]
+)
+ORDER BY [LTV:CAC] DESC
+
+// ---- Q6 | Cohort retention matrix (compare month 1-3 values with sql/results/q10_cohort_retention.csv)
+EVALUATE
+FILTER (
+    SUMMARIZECOLUMNS ( Dim_Customer[Cohort Month], Offsets[Offset], "Retention %", [Cohort Retention %] ),
+    Dim_Customer[Cohort Month] >= DATE ( 2024, 1, 1 ) && NOT ISBLANK ( [Retention %] )
+)
+ORDER BY Dim_Customer[Cohort Month], Offsets[Offset]
+
+// ---- Q7 | ABC classification summary built on a virtual table (GROUPBY / CURRENTGROUP)
+EVALUATE
+VAR Prod = ADDCOLUMNS ( VALUES ( Dim_Product[product_name] ), "Revenue", [Net Revenue], "Class", [ABC Class] )
+RETURN
+    GROUPBY ( Prod, [Class], "Products", COUNTX ( CURRENTGROUP (), 1 ), "Revenue", SUMX ( CURRENTGROUP (), [Revenue] ) )
+ORDER BY [Class]
+
+// ---- Q8 | Customer segment value & size (RFM) - compare with sql/results/q09_rfm_scoring_ntile.csv
+EVALUATE
+SUMMARIZECOLUMNS (
+    Dim_Customer[RFM Segment],
+    "Customers", [Customers in Segment], "Kept Revenue", [Kept Revenue],
+    "Revenue Share", [Segment Revenue Share %], "Avg Recency (days)", [Avg Recency Days]
+)
+ORDER BY [Kept Revenue] DESC
+
+// ---- Q9 | Operations scorecard by region
+EVALUATE
+SUMMARIZECOLUMNS ( Dim_Customer[region], "Orders Placed", [All Orders Placed], "Avg Delivery Days", [Avg Delivery Days],
+                   "Late Delivery %", [Late Delivery %], "Cancellation %", [Cancellation Rate %], "Return Rate %", [Return Rate %] )
+ORDER BY [Avg Delivery Days] DESC
+
+// ---- Q10 | Time intelligence check: monthly revenue with MoM, YoY, YTD and rolling-3M
+EVALUATE
+SUMMARIZECOLUMNS ( Dim_Date[Year-Month], "Revenue", [Net Revenue], "MoM %", [Revenue MoM %], "YoY %", [Revenue YoY %],
+                   "YTD", [Revenue YTD], "Rolling 3M Avg", [Revenue Rolling 3M Avg], "Seasonality Idx", [Seasonality Index] )
+ORDER BY Dim_Date[Year-Month]

@@ -1,0 +1,8 @@
+payment_method,orders,cancelled,cancel_rate_pct
+Cash on Delivery,5161,457,8.85
+Unknown,728,34,4.67
+Debit Card,3381,124,3.67
+Credit Card,5118,174,3.4
+Wallet,1150,36,3.13
+UPI,11821,359,3.04
+Net Banking,1748,52,2.97

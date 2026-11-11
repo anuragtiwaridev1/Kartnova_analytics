@@ -1,0 +1,145 @@
+product_id,product_name,category,sub_category,brand,list_price,unit_cost
+P001,Sahara Smartphones Model 1,Electronics,Smartphones,Sahara,44029.0,31859.74
+P002,Tarang Smartphones Model 2,Electronics,Smartphones,Tarang,22139.0,16180.07
+P003,Pinnacle Smartphones Model 3,Electronics,Smartphones,Pinnacle,52369.0,40463.02
+P004,Kiara Smartphones Model 4,Electronics,Smartphones,Kiara,37629.0,26005.79
+P005,Kiara Smartphones Model 5,Electronics,Smartphones,Kiara,10919.0,7934.82
+P006,Tarang Smartphones Model 6,Electronics,Smartphones,Tarang,66579.0,47046.35
+P007,Aurora Laptops Model 1,Electronics,Laptops,Aurora,38509.0,29422.67
+P008,Indus Laptops Model 2,Electronics,Laptops,Indus,55169.0,40699.63
+P009,Tarang Laptops Model 3,Electronics,Laptops,Tarang,32179.0,24179.83
+P010,Nimbus Laptops Model 4,Electronics,Laptops,Nimbus,74469.0,52380.34
+P011,Pinnacle Laptops Model 5,Electronics,Laptops,Pinnacle,60049.0,42738.54
+P012,Zenith Laptops Model 6,Electronics,Laptops,Zenith,68989.0,48875.87
+P013,Sahara Laptop Accessories Model 1,Electronics,Laptop Accessories,Sahara,2439.0,1794.37
+P014,Orbit Laptop Accessories Model 2,Electronics,Laptop Accessories,Orbit,4559.0,3516.01
+P015,Indus Laptop Accessories Model 3,Electronics,Laptop Accessories,Indus,749.0,522.41
+P016,Orbit Laptop Accessories Model 4,Electronics,Laptop Accessories,Orbit,849.0,596.71
+P017,Orbit Laptop Accessories Model 5,Electronics,Laptop Accessories,Orbit,1119.0,854.11
+P018,Tarang Laptop Accessories Model 6,Electronics,Laptop Accessories,Tarang,509.0,368.6
+P019,Orbit Headphones Model 1,Electronics,Headphones,Orbit,3539.0,2471.76
+P020,Sahara Headphones Model 2,Electronics,Headphones,Sahara,19889.0,14836.87
+P021,Pinnacle Headphones Model 3,Electronics,Headphones,Pinnacle,1839.0,1385.72
+P022,Pinnacle Headphones Model 4,Electronics,Headphones,Pinnacle,2399.0,1784.27
+P023,Orbit Headphones Model 5,Electronics,Headphones,Orbit,1029.0,674.26
+P024,Sahara Headphones Model 6,Electronics,Headphones,Sahara,31439.0,21428.38
+P025,Lumen Men's Wear Model 1,Fashion,Men's Wear,Lumen,1849.0,629.28
+P026,Aurora Men's Wear Model 2,Fashion,Men's Wear,Aurora,3169.0,1277.48
+P027,Vertex Men's Wear Model 3,Fashion,Men's Wear,Vertex,2229.0,751.4
+P028,Kiara Men's Wear Model 4,Fashion,Men's Wear,Kiara,1789.0,793.93
+P029,Tarang Men's Wear Model 5,Fashion,Men's Wear,Tarang,1819.0,794.29
+P030,Aurora Women's Wear Model 1,Fashion,Women's Wear,Aurora,859.0,299.55
+P031,Orbit Women's Wear Model 2,Fashion,Women's Wear,Orbit,879.0,347.62
+P032,Tarang Women's Wear Model 3,Fashion,Women's Wear,Tarang,2399.0,991.02
+P033,Zenith Women's Wear Model 4,Fashion,Women's Wear,Zenith,1809.0,720.26
+P034,Zenith Women's Wear Model 5,Fashion,Women's Wear,Zenith,3339.0,1468.47
+P035,Zenith Footwear Model 1,Fashion,Footwear,Zenith,1399.0,485.08
+P036,Kiara Footwear Model 2,Fashion,Footwear,Kiara,619.0,248.32
+P037,Lumen Footwear Model 3,Fashion,Footwear,Lumen,1549.0,594.79
+P038,Kiara Footwear Model 4,Fashion,Footwear,Kiara,599.0,270.96
+P039,Kiara Footwear Model 5,Fashion,Footwear,Kiara,2629.0,1172.89
+P040,Indus Fashion Accessories Model 1,Fashion,Fashion Accessories,Indus,4679.0,1605.48
+P041,Sahara Fashion Accessories Model 2,Fashion,Fashion Accessories,Sahara,2659.0,1134.54
+P042,Vertex Fashion Accessories Model 3,Fashion,Fashion Accessories,Vertex,819.0,350.12
+P043,Zenith Fashion Accessories Model 4,Fashion,Fashion Accessories,Zenith,5519.0,2190.78
+P044,Orbit Fashion Accessories Model 5,Fashion,Fashion Accessories,Orbit,3289.0,1533.88
+P045,Lumen Cookware Model 1,Home & Kitchen,Cookware,Lumen,989.0,540.46
+P046,Orbit Cookware Model 2,Home & Kitchen,Cookware,Orbit,2889.0,1499.12
+P047,Zenith Cookware Model 3,Home & Kitchen,Cookware,Zenith,599.0,263.51
+P048,Lumen Cookware Model 4,Home & Kitchen,Cookware,Lumen,8559.0,4888.69
+P049,Tarang Cookware Model 5,Home & Kitchen,Cookware,Tarang,5829.0,2978.83
+P050,Aurora Furniture Model 1,Home & Kitchen,Furniture,Aurora,2069.0,1142.06
+P051,Indus Furniture Model 2,Home & Kitchen,Furniture,Indus,1089.0,616.73
+P052,Pinnacle Furniture Model 3,Home & Kitchen,Furniture,Pinnacle,529.0,311.49
+P053,Vertex Furniture Model 4,Home & Kitchen,Furniture,Vertex,449.0,219.22
+P054,Aurora Furniture Model 5,Home & Kitchen,Furniture,Aurora,2979.0,1768.16
+P055,Zenith Home Decor Model 1,Home & Kitchen,Home Decor,Zenith,1979.0,988.07
+P056,Pinnacle Home Decor Model 2,Home & Kitchen,Home Decor,Pinnacle,6409.0,4015.89
+P057,Indus Home Decor Model 3,Home & Kitchen,Home Decor,Indus,409.0,207.21
+P058,Vertex Home Decor Model 4,Home & Kitchen,Home Decor,Vertex,2009.0,1086.4
+P059,Vertex Home Decor Model 5,Home & Kitchen,Home Decor,Vertex,2039.0,1122.68
+P060,Aurora Appliances Model 1,Home & Kitchen,Appliances,Aurora,7599.0,4136.25
+P061,Sahara Appliances Model 2,Home & Kitchen,Appliances,Sahara,9989.0,5221.14
+P062,Sahara Appliances Model 3,Home & Kitchen,Appliances,Sahara,519.0,266.5
+P063,Lumen Appliances Model 4,Home & Kitchen,Appliances,Lumen,2619.0,1233.19
+P064,Meridian Appliances Model 5,Home & Kitchen,Appliances,Meridian,459.0,265.87
+P065,Nimbus Skincare Model 1,Beauty & Personal Care,Skincare,Nimbus,169.0,65.09
+P066,Indus Skincare Model 2,Beauty & Personal Care,Skincare,Indus,919.0,294.77
+P067,Meridian Skincare Model 3,Beauty & Personal Care,Skincare,Meridian,499.0,173.57
+P068,Vertex Skincare Model 4,Beauty & Personal Care,Skincare,Vertex,2279.0,849.47
+P069,Pinnacle Skincare Model 5,Beauty & Personal Care,Skincare,Pinnacle,2129.0,676.38
+P070,Aurora Haircare Model 1,Beauty & Personal Care,Haircare,Aurora,619.0,214.13
+P071,Orbit Haircare Model 2,Beauty & Personal Care,Haircare,Orbit,3899.0,1269.94
+P072,Vertex Haircare Model 3,Beauty & Personal Care,Haircare,Vertex,2799.0,920.96
+P073,Kiara Haircare Model 4,Beauty & Personal Care,Haircare,Kiara,1749.0,630.6
+P074,Kiara Haircare Model 5,Beauty & Personal Care,Haircare,Kiara,2789.0,888.47
+P075,Meridian Fragrances Model 1,Beauty & Personal Care,Fragrances,Meridian,1739.0,521.7
+P076,Zenith Fragrances Model 2,Beauty & Personal Care,Fragrances,Zenith,349.0,125.35
+P077,Sahara Fragrances Model 3,Beauty & Personal Care,Fragrances,Sahara,3249.0,974.7
+P078,Meridian Fragrances Model 4,Beauty & Personal Care,Fragrances,Meridian,329.0,98.7
+P079,Indus Fragrances Model 5,Beauty & Personal Care,Fragrances,Indus,219.0,84.26
+P080,Tarang Grooming Model 1,Beauty & Personal Care,Grooming,Tarang,3649.0,1224.13
+P081,Indus Grooming Model 2,Beauty & Personal Care,Grooming,Indus,769.0,236.7
+P082,Zenith Grooming Model 3,Beauty & Personal Care,Grooming,Zenith,239.0,81.84
+P083,Tarang Grooming Model 4,Beauty & Personal Care,Grooming,Tarang,159.0,60.76
+P084,Pinnacle Grooming Model 5,Beauty & Personal Care,Grooming,Pinnacle,319.0,122.47
+P085,Aurora Snacks Model 1,Grocery & Gourmet,Snacks,Aurora,879.0,576.25
+P086,Kiara Snacks Model 2,Grocery & Gourmet,Snacks,Kiara,689.0,479.81
+P087,Pinnacle Snacks Model 3,Grocery & Gourmet,Snacks,Pinnacle,739.0,465.47
+P088,Lumen Snacks Model 4,Grocery & Gourmet,Snacks,Lumen,139.0,85.23
+P089,Indus Snacks Model 5,Grocery & Gourmet,Snacks,Indus,139.0,95.59
+P090,Indus Beverages Model 1,Grocery & Gourmet,Beverages,Indus,109.0,72.88
+P091,Zenith Beverages Model 2,Grocery & Gourmet,Beverages,Zenith,449.0,248.8
+P092,Lumen Beverages Model 3,Grocery & Gourmet,Beverages,Lumen,549.0,396.74
+P093,Orbit Beverages Model 4,Grocery & Gourmet,Beverages,Orbit,129.0,89.57
+P094,Orbit Beverages Model 5,Grocery & Gourmet,Beverages,Orbit,139.0,98.63
+P095,Tarang Staples Model 1,Grocery & Gourmet,Staples,Tarang,99.0,68.13
+P096,Lumen Staples Model 2,Grocery & Gourmet,Staples,Lumen,129.0,91.13
+P097,Zenith Staples Model 3,Grocery & Gourmet,Staples,Zenith,939.0,679.69
+P098,Lumen Staples Model 4,Grocery & Gourmet,Staples,Lumen,859.0,659.61
+P099,Pinnacle Staples Model 5,Grocery & Gourmet,Staples,Pinnacle,189.0,142.38
+P100,Nimbus Organic Foods Model 1,Grocery & Gourmet,Organic Foods,Nimbus,189.0,132.0
+P101,Nimbus Organic Foods Model 2,Grocery & Gourmet,Organic Foods,Nimbus,749.0,496.53
+P102,Tarang Organic Foods Model 3,Grocery & Gourmet,Organic Foods,Tarang,909.0,662.97
+P103,Meridian Organic Foods Model 4,Grocery & Gourmet,Organic Foods,Meridian,129.0,89.3
+P104,Indus Organic Foods Model 5,Grocery & Gourmet,Organic Foods,Indus,119.0,78.33
+P105,Tarang Gym Equipment Model 1,Sports & Fitness,Gym Equipment,Tarang,989.0,483.02
+P106,Aurora Gym Equipment Model 2,Sports & Fitness,Gym Equipment,Aurora,569.0,271.08
+P107,Tarang Gym Equipment Model 3,Sports & Fitness,Gym Equipment,Tarang,489.0,219.74
+P108,Kiara Gym Equipment Model 4,Sports & Fitness,Gym Equipment,Kiara,329.0,158.71
+P109,Sahara Gym Equipment Model 5,Sports & Fitness,Gym Equipment,Sahara,379.0,188.49
+P110,Meridian Sportswear Model 1,Sports & Fitness,Sportswear,Meridian,10699.0,4507.83
+P111,Vertex Sportswear Model 2,Sports & Fitness,Sportswear,Vertex,359.0,172.57
+P112,Aurora Sportswear Model 3,Sports & Fitness,Sportswear,Aurora,639.0,355.04
+P113,Zenith Sportswear Model 4,Sports & Fitness,Sportswear,Zenith,809.0,356.32
+P114,Aurora Sportswear Model 5,Sports & Fitness,Sportswear,Aurora,849.0,404.12
+P115,Lumen Outdoor Gear Model 1,Sports & Fitness,Outdoor Gear,Lumen,449.0,218.58
+P116,Lumen Outdoor Gear Model 2,Sports & Fitness,Outdoor Gear,Lumen,10359.0,5330.83
+P117,Tarang Outdoor Gear Model 3,Sports & Fitness,Outdoor Gear,Tarang,13279.0,6708.21
+P118,Pinnacle Outdoor Gear Model 4,Sports & Fitness,Outdoor Gear,Pinnacle,18349.0,9034.53
+P119,Meridian Outdoor Gear Model 5,Sports & Fitness,Outdoor Gear,Meridian,8699.0,3709.47
+P120,Orbit Yoga Model 1,Sports & Fitness,Yoga,Orbit,1509.0,729.75
+P121,Kiara Yoga Model 2,Sports & Fitness,Yoga,Kiara,4399.0,1819.57
+P122,Kiara Yoga Model 3,Sports & Fitness,Yoga,Kiara,919.0,419.81
+P123,Orbit Yoga Model 4,Sports & Fitness,Yoga,Orbit,539.0,278.35
+P124,Kiara Yoga Model 5,Sports & Fitness,Yoga,Kiara,2229.0,1231.85
+P125,Indus Fiction Model 1,Books & Stationery,Fiction,Indus,239.0,133.37
+P126,Meridian Fiction Model 2,Books & Stationery,Fiction,Meridian,1709.0,953.71
+P127,Pinnacle Fiction Model 3,Books & Stationery,Fiction,Pinnacle,1549.0,834.29
+P128,Pinnacle Fiction Model 4,Books & Stationery,Fiction,Pinnacle,419.0,241.63
+P129,Nimbus Fiction Model 5,Books & Stationery,Fiction,Nimbus,269.0,165.4
+P130,Sahara Academic Model 1,Books & Stationery,Academic,Sahara,179.0,97.1
+P131,Pinnacle Academic Model 2,Books & Stationery,Academic,Pinnacle,799.0,390.69
+P132,Zenith Academic Model 3,Books & Stationery,Academic,Zenith,1319.0,868.7
+P133,Indus Academic Model 4,Books & Stationery,Academic,Indus,149.0,86.92
+P134,Indus Academic Model 5,Books & Stationery,Academic,Indus,629.0,381.12
+P135,Aurora Office Supplies Model 1,Books & Stationery,Office Supplies,Aurora,589.0,377.45
+P136,Zenith Office Supplies Model 2,Books & Stationery,Office Supplies,Zenith,1039.0,586.41
+P137,Aurora Office Supplies Model 3,Books & Stationery,Office Supplies,Aurora,1079.0,563.49
+P138,Pinnacle Office Supplies Model 4,Books & Stationery,Office Supplies,Pinnacle,1699.0,1180.07
+P139,Sahara Office Supplies Model 5,Books & Stationery,Office Supplies,Sahara,209.0,118.04
+P140,Tarang Art Supplies Model 1,Books & Stationery,Art Supplies,Tarang,1089.0,717.74
+P141,Orbit Art Supplies Model 2,Books & Stationery,Art Supplies,Orbit,429.0,217.16
+P142,Lumen Art Supplies Model 3,Books & Stationery,Art Supplies,Lumen,599.0,322.06
+P143,Nimbus Art Supplies Model 4,Books & Stationery,Art Supplies,Nimbus,1629.0,991.32
+P144,Sahara Art Supplies Model 5,Books & Stationery,Art Supplies,Sahara,139.0,73.19
