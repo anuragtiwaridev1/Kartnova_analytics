@@ -1,0 +1,99 @@
+\documentclass[9.5pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[top=10mm,bottom=8mm,left=15mm,right=15mm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\definecolor{navy}{HTML}{1F3A5F}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+\titleformat{\section}{\large\bfseries\color{navy}}{}{0pt}{\MakeUppercase}[\vspace{-2pt}\textcolor{navy}{\rule{\linewidth}{0.8pt}}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=0.5pt,topsep=1pt,parsep=0pt}
+
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1}, #2 \hfill {\small\color{gray}#3}\\
+  \vspace{-1pt}\textit{#4}\\[-1pt]
+}
+\newcommand{\project}[2]{%
+  \noindent\textbf{#1} \hfill {\small\textit{#2}}\\[-1pt]
+}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\bfseries\color{navy} ANURAG RAJKUMAR TIWARI}\\[3pt]
+  {\large\bfseries Developer | Full Stack (MERN) | Python | SQL}\\[4pt]
+  {\small +91-9653235350 \quad|\quad anuragtiwari.dev1@gmail.com \quad|\quad
+  \href{https://github.com/anurag123-at}{github.com/anurag123-at} \quad|\quad
+  \href{https://linkedin.com/in/anuragtiwari-dev}{linkedin.com/in/anuragtiwari-dev}}
+\end{center}
+
+\section*{Summary}
+Computer Science engineering student (CGPA 9.20/10) with hands-on experience building full stack web applications with the MERN stack, REST APIs and Django, plus Python automation, SQL data work and API testing. Comfortable working across the frontend, backend and database, and eager to contribute to a development team.
+
+\section*{Technical Skills}
+\begin{itemize}
+  \item \textbf{Languages:} JavaScript (ES6+), Python, SQL, Bash
+  \item \textbf{Frontend and Backend:} React.js, Node.js, Express.js, Django, HTML5, CSS3, REST APIs, JWT authentication
+  \item \textbf{Databases and Data:} MongoDB, MySQL, Pandas, NumPy, data cleaning and validation
+  \item \textbf{Testing and Tools:} Pytest, Playwright, Postman, Swagger/OpenAPI, Git, GitHub, GitHub Actions, Linux
+  \item \textbf{Cloud and Other:} AWS (EC2, Security Groups, IAM, S3), Power BI
+\end{itemize}
+
+\section*{Projects}
+\project{Quiz Application}{React, Node.js, Express, MongoDB, JWT, Postman}
+\begin{itemize}
+  \item Designed and tested REST APIs for authentication, quiz delivery, score tracking and result analysis.
+  \item Optimised database queries and implemented secure user login and role-based authorization.
+\end{itemize}
+
+\project{Educational Classes Website (Freelance)}{Django, HTML, CSS}
+\begin{itemize}
+  \item Delivered, deployed and maintained a production-ready client website with server-side rendering, forms and an admin panel.
+\end{itemize}
+
+\project{LLM Response Evaluation Suite for a RAG Q\&A Assistant}{Python, Pytest, DeepEval, Ragas, GitHub Actions}
+\begin{itemize}
+  \item Automated scoring of answers for accuracy, groundedness and relevance against a versioned golden dataset.
+  \item Enforced score thresholds in CI on every commit, with prompt-injection and PII-leakage test cases.
+\end{itemize}
+
+\project{Web and API Test Automation Framework}{Python, Playwright, Pytest, Postman, GitHub Actions}
+\begin{itemize}
+  \item Built a reusable OOP framework (Page Object Model) for end-to-end web tests and REST API validation.
+  \item Generated API test collections from OpenAPI specs and ran the full suite automatically in CI.
+\end{itemize}
+
+\section*{Experience}
+\entry{AI Engineer Intern}{CMS, Ghansoli}{October 2026 -- Present}{Data annotation and computer vision}
+\begin{itemize}
+  \item Annotated images, trained a YOLO model for auto-annotation and wrote Python scripts to clean, sort and split labelled datasets.
+\end{itemize}
+\entry{Data Analytics Intern}{Imarticus Learning}{3 months}{Data analysis}
+\begin{itemize}
+  \item Cleaned, validated and analysed datasets using Python, Pandas, SQL and Power BI; built dashboards.
+\end{itemize}
+\entry{Data Analytics Intern}{TechnoHacks Solutions}{2 months}{Data analysis}
+\begin{itemize}
+  \item Performed data cleaning and exploratory analysis using Pandas, NumPy, Matplotlib and Seaborn.
+\end{itemize}
+\entry{Python Trainee}{Smartbyte Education}{8 months}{Python training}
+\begin{itemize}
+  \item Completed hands-on training in core Python programming, problem solving and scripting.
+\end{itemize}
+
+\section*{Education and Certifications}
+\begin{itemize}
+  \item \textbf{B.E. Computer Science}, Terna Engineering College, Mumbai University, 2023--2027, CGPA 9.20/10; HSC 2023: 85\%; SSC 2021: 91\%
+  \item Full Stack Web Development (MERN): React, Node.js, Express, MongoDB
+  \item Version Control and API Development: Git, REST APIs
+\end{itemize}
+
+\end{document}
